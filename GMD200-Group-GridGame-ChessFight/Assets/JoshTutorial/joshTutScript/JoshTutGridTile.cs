@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class JoshTutGridTile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public JoshTutGridManager gridManager;
+    public Vector2Int gridCoords;
+    private SpriteRenderer spriteRenderer;
+    private Color defaultColor;
+    
+    private void Awake()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultColor = spriteRenderer.color;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseOver()
     {
-        
+        gridManager.OnTileHoverEnter(this);
+        SetColor(Color.green);
     }
+    private void OnMouseExit()
+    {
+        gridManager.OnTileHoverExit(this);
+        ResetColor();
+    }
+    private void OnMouseDown()
+    {
+        gridManager.OnTileSelected(this);
+    }
+
+    public void SetColor(Color color)
+    {
+        spriteRenderer.color = color;
+    }
+    public void ResetColor()
+    {
+        spriteRenderer.color = defaultColor;
+    }
+
+    
 }
