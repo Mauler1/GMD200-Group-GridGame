@@ -15,6 +15,7 @@ public class NickGridManager : MonoBehaviour
 
     [SerializeField] private NickGridTile tilePrefab;
     [SerializeField] private TextMeshProUGUI text;
+    private NickGridTile[] _tiles;
 
     private void Awake()
     {
@@ -23,6 +24,8 @@ public class NickGridManager : MonoBehaviour
 
     public void InitGrid() 
     {
+        _tiles = new NickGridTile[numRows * numColumns];
+
         for (int y = 0; y < numRows; y++) 
         {
             for (int x = 0; x < numColumns; x++)
@@ -33,6 +36,7 @@ public class NickGridManager : MonoBehaviour
                 tile.name = $"Tile_{x}_{y}";
                 tile.gridManager = this;
                 tile.gridCoords = new Vector2Int(x, y);
+                _tiles[y * numColumns + x] = tile;
             }
         }
     }
@@ -50,5 +54,15 @@ public class NickGridManager : MonoBehaviour
     public void OnTileSelected(NickGridTile gridTile) 
     {
         TileSelected?.Invoke(gridTile);
+    }
+
+    internal NickGridTile GetTile(Vector2Int pos)
+    {
+        if (pos.x < 0 || pos.x >= numColumns || pos.y < 0 || pos.y >= numRows) 
+        {
+            Debug.LogError($"Invalid Coordinate{pos}");
+            return null;
+        }
+        return _tiles[pos.y * numColumns + pos.x]; 
     }
 }

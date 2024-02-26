@@ -21,13 +21,13 @@ public class NickGridTile : MonoBehaviour
     private void OnMouseOver()
     {
         gridManager.OnTileHoverEnter(this);
-        setColor(Color.green);
+       // setColor(Color.green);
     }
 
     private void OnMouseExit()
     {
         gridManager.OnTileHoverExit(this);
-        resetColor();
+       // resetColor();
     }
 
     private void OnMouseDown()
