@@ -30,6 +30,11 @@ public class NickGridTile : MonoBehaviour
         resetColor();
     }
 
+    private void OnMouseDown()
+    {
+        gridManager.OnTileSelected(this);
+    }
+
     public void setColor(Color color) 
     { 
         _spriteRenderer.color = color;

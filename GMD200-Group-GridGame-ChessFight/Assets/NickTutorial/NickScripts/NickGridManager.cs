@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public class NickGridManager : MonoBehaviour
 {
+    public event Action<NickGridTile> TileSelected;
+
     public int numRows = 5;
     public int numColumns = 6;
 
@@ -42,5 +45,10 @@ public class NickGridManager : MonoBehaviour
     public void OnTileHoverExit(NickGridTile gridTile)
     {
         text.text = "- - -";
+    }
+
+    public void OnTileSelected(NickGridTile gridTile) 
+    {
+        TileSelected?.Invoke(gridTile);
     }
 }
