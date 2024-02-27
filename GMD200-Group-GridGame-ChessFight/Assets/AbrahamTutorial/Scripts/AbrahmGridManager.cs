@@ -13,6 +13,7 @@ public class AbrahmGridManager : MonoBehaviour
     public float padding = 0.1f;
     [SerializeField] private AbrahmGridTile tilePrefab;
     [SerializeField] private TextMeshProUGUI text;
+    private AbrahmGridTile[] _tiles;
 
     private void Awake(){
 
@@ -22,6 +23,7 @@ public class AbrahmGridManager : MonoBehaviour
 
     public void InitGrid(){
 
+        _tiles = new AbrahmGridTile[numRows * numColumns];
         for(int y = 0; y < numRows; y++){
 
             for(int x = 0; x < numColumns; x++){
@@ -32,6 +34,7 @@ public class AbrahmGridManager : MonoBehaviour
                 tile.name = $"Tile_{x}_{y}";
                 tile.gridManager = this;
                 tile.gridCoords = new Vector2Int(x, y);
+                _tiles[y * numColumns + x] = tile;
 
             }
 
@@ -52,4 +55,14 @@ public class AbrahmGridManager : MonoBehaviour
         TileSelected?.Invoke(gridTile);
     }
 
+    public AbrahmGridTile GetTile(Vector2Int pos)
+    {
+
+        if(pos.x < 0 || pos.x >= numColumns || pos.y < 0 || pos.y >= numRows){
+            Debug.LogError($"Invalid Position {pos}");
+            return null;
+        }
+
+        return _tiles[pos.y * numColumns + pos.x];
+    }
 }

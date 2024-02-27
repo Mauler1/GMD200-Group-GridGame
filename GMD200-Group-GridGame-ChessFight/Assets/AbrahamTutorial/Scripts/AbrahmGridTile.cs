@@ -18,14 +18,14 @@ public class AbrahmGridTile : MonoBehaviour
     private void OnMouseOver(){
 
         gridManager.OnTileHoverEnter(this);
-        SetColor(Color.green);
+        //SetColor(Color.green);
 
     }
 
     private void OnMouseExit(){
 
         gridManager.OnTileHoverExit(this);
-        ResetColor();
+        //ResetColor();
 
     }
 
