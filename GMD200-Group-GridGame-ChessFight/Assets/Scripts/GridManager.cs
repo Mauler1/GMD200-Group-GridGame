@@ -11,8 +11,9 @@ public class GridManager : MonoBehaviour
     public float padding = 0.1f;
     [SerializeField] private TextMeshProUGUI text;
     public event Action<GridTile> TileSelected;
-    [SerializeField] private PieceSelect pieceSelector;
-
+    [SerializeField] private PieceSpawn pieceSelector;
+    [SerializeField] private GridTile[][] tiles;
+    //try making a 2d array for the pathways, it would be manually set but it could work.
     private void Awake()
     {
         InitGrid();
@@ -29,6 +30,7 @@ public class GridManager : MonoBehaviour
                 tile.name = $"Tile{x}_{y}";
                 tile.gridManager = this;
                 tile.gridCoords = new Vector2Int(x, y);
+                tiles[x][y] = tile;
             }
         }
     }
@@ -45,6 +47,10 @@ public class GridManager : MonoBehaviour
     public void OnTileSelected(GridTile gridTile)
     {
         TileSelected?.Invoke(gridTile);
+    }
+    public GridTile getTile(int x, int y)
+    {
+        return tiles[x][y];
     }
 
 }

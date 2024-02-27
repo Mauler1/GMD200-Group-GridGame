@@ -8,11 +8,14 @@ public class GridTile : MonoBehaviour
     public Vector2Int gridCoords;
     private SpriteRenderer spriteRenderer;
     private Color defaultColor;
+    public bool isOccupied, canBeOccupied;
+    public GameObject occupant;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         defaultColor = spriteRenderer.color;
+        isOccupied = false;
     }
 
     private void OnMouseOver()

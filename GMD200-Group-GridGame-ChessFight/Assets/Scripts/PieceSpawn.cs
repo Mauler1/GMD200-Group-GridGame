@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PieceSelect : MonoBehaviour
+public class PieceSpawn : MonoBehaviour
 {
+    [SerializeField] private int curCost;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,9 @@ public class PieceSelect : MonoBehaviour
     void Update()
     {
         
+    }
+    public void makePiece()
+    {
+
     }
 }
