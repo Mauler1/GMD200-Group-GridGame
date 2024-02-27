@@ -6,7 +6,6 @@ public class PieceMenu : MonoBehaviour
 {
     //public Pawn pawn;
     public GameObject curTower, pawn;
-    //[SerializeField] private PieceSpawn pieceSpawn;
     [SerializeField] private GridManager gridManager;
     // Start is called before the first frame update
     void Start()
