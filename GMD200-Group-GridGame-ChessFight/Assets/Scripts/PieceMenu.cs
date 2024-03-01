@@ -35,5 +35,9 @@ public class PieceMenu : MonoBehaviour
         }
 
     }
+    public void setCurTower(GameObject targTow)
+    {
+        curTower = targTow;
+    }
 
 }

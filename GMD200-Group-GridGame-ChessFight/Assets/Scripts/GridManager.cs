@@ -31,6 +31,8 @@ public class GridManager : MonoBehaviour
                 tile.name = $"Tile{x}_{y}";
                 tile.gridManager = this;
                 tile.gridCoords = new Vector2Int(x, y);
+                tile.isOccupied = false;
+                tile.canBeOccupied = true;
                 tiles[y, x] = tile;
             }
         }
