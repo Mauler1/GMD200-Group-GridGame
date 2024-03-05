@@ -7,7 +7,7 @@ using UnityEngine;
 public class PieceMenu : MonoBehaviour
 {
     //public Pawn pawn;
-    public GameObject curTower, pawn;
+    public Piece curTower, pawn;
     [SerializeField] private GridManager gridManager;
     private const int START_COST = 100;
     public TextMeshProUGUI costDisp;
@@ -28,8 +28,11 @@ public class PieceMenu : MonoBehaviour
         if(gridManager.getTile(x, y).isOccupied == false && gridManager.getTile(x, y).canBeOccupied == true)
         {
             Transform spawnPos = gridManager.getTile(x, y).transform;
-            GameObject tempTow = Instantiate(curTower, spawnPos);
+            Piece tempTow = Instantiate(curTower, spawnPos);
             tempTow.transform.position = new Vector3(spawnPos.position.x, spawnPos.position.y, -1f);
+            if(tempTow is Pawn pawn){
+                pawn.spawn();
+            }
             //in here use any other special script get components I will need
             gridManager.getTile(x, y).isOccupied = true;
             curTower = null;
@@ -40,7 +43,7 @@ public class PieceMenu : MonoBehaviour
         }
 
     }
-    public void setCurTower(GameObject targTow)
+    public void setCurTower(Piece targTow)
     {
         curTower = targTow;
     }

@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCost: 100
+  damage: 2
   gridManager: {fileID: 0}
-  gridTile: {fileID: 0}
+  gridTile: {fileID: 5168909125231699922, guid: 5f9742f5479b1d74ea70436448ca62af, type: 3}
+  attackPrefab: {fileID: 6478281527784608402, guid: f18738bf52880144db28920fcb010236, type: 3}
   xPos: 0
   yPos: 0

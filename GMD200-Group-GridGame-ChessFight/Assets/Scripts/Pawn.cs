@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class Pawn : MonoBehaviour
+public class Pawn : Piece
 {
     public int towerCost = 100;
     [SerializeField] private int damage = 2;
@@ -25,12 +25,12 @@ public class Pawn : MonoBehaviour
     }
 
     // damage return function for the attack tile
-    public int getDamage(){
+    public new int getDamage(){
         return damage;
     }
 
     // increasing damage for use in piece upgrades
-    public void increaseDamage(int damage){
+    public new void increaseDamage(int damage){
         this.damage += damage;
     }
 }
