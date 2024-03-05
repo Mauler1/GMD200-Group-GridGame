@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PieceMenu : MonoBehaviour
@@ -8,16 +9,19 @@ public class PieceMenu : MonoBehaviour
     //public Pawn pawn;
     public GameObject curTower, pawn;
     [SerializeField] private GridManager gridManager;
+    private const int START_COST = 100;
+    public TextMeshProUGUI costDisp;
+    private int curCost;
     // Start is called before the first frame update
     void Start()
     {
-        
+        curCost = START_COST;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        costDisp.text = "Current Cost: " + curCost.ToString();
     }
     public void Spawn(int x, int y)
     {
