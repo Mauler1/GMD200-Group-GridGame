@@ -44,5 +44,16 @@ public class PieceMenu : MonoBehaviour
     {
         curTower = targTow;
     }
-
+    public int getCurCost()
+    {
+        return curCost;
+    }
+    public void addCost(int costChange)
+    {
+        curCost += costChange;
+    }
+    public void subtractCost(int costChange)
+    { 
+        curCost -= costChange;
+    }
 }
