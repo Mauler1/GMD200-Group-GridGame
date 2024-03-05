@@ -1,38 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class AiPathing : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private Rigidbody2D rb;
+
+    [Header("Attributes")]
+    [SerializeField] private float movespeed = 2f;
+
+    private Transform target;
+    private int pathIndex = 0;
+
+    private void Start()
+    {
+        target = LevelManager.main.path[pathIndex];
+    }
+
+    private void Update()
+    {
+        if (Vector2.Distance(target.position, transform.position) <= 0.1f)
+        {
+            pathIndex++;
+
+            if (pathIndex == LevelManager.main.path.Length)
+            {
+                Destroy(gameObject);
+                Debug.Log("It made it");
+                return;
+            }
+            else 
+            {
+                target = LevelManager.main.path[pathIndex];
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 direction = (target.position - transform.position).normalized;
+
+        rb.velocity = direction * movespeed;
+    }
+    //this has been temporaily disabled for now for pathing to work
+
+    /*
     private int pathLength;
     private int counter = 0;
-    public int[,] levelOnePath;
+    public int[] levelOnePath;
 
-    [SerializeField] private float movespeed = 5;
+    [SerializeField] private float movespeed = 5f;
     [SerializeField] private GridManager _gridManager;
 
     public GridTile[,] enemyTiles;
-    // What this will do is this will be going through each path once the path is created and move to every tile
-    // this is in order from the starting place to the ending place
 
-    // first the grid will need to be set up for this 
-    private void Awake()
-    {
-        LevelOnePath();
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
-        
-        // pathLength needs to get the coordinates for the pathing
-        // this will set up the dynamic array
+        LevelOnePath();
+        counter = 0;
+        Debug.Log(counter);
+      
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        pathCaller();
     }
 
     public void LevelOnePath() 
@@ -56,19 +91,40 @@ public class AiPathing : MonoBehaviour
         enemyTiles[14, 14] = _gridManager.getTile(6, 5);
         enemyTiles[15, 15] = _gridManager.getTile(7, 5);
 
+        levelOnePath = new int[16];
+
+
         while (counter < 16)
         {
             enemyTiles[counter, counter].canBeOccupied = false;
-            Debug.Log(enemyTiles[counter, counter]);
+            levelOnePath[counter] = counter;
             counter++;
         }
     }
 
-    private void PathingSelected(GridManager place) 
-    { 
+    private void advaceMove(int x, int y) 
+    {
+        
+    }
+
+    private void pathCaller() 
+    {
         StopAllCoroutines();
-        Debug.Log("GRID GAME " + place);
-        StartCoroutine(EnemyAdvancemnt(place.transform.position));
+        StartCoroutine(PathingSelected());
+    }
+
+    private IEnumerator PathingSelected() 
+    {
+        while (counter < 16) 
+        {
+            GridTile currentTile = enemyTiles[counter, counter];
+            Vector3 vector3 = new Vector3();
+            vector3.x = levelOnePath[counter];
+            vector3.y = levelOnePath[counter];
+            //Vector3.MoveTowards(vector3.x, vector3.y, movespeed * Time.deltaTime);
+            counter++;
+            yield return null;
+        }
     }
 
     private IEnumerator EnemyAdvancemnt(Vector3 targetPosition) 
@@ -80,4 +136,5 @@ public class AiPathing : MonoBehaviour
         }
         transform.position = targetPosition;
     }
+    */
 }
