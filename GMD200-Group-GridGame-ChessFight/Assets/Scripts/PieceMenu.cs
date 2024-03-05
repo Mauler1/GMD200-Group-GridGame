@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,14 +19,14 @@ public class PieceMenu : MonoBehaviour
     {
         
     }
-    public void spawnPawn(int x, int y)
+    public void Spawn(int x, int y)
     {
         if(gridManager.getTile(x, y).isOccupied == false && gridManager.getTile(x, y).canBeOccupied == true)
         {
             Transform spawnPos = gridManager.getTile(x, y).transform;
-            GameObject tempPawn = Instantiate(pawn, spawnPos);
-            tempPawn.GetComponent<Pawn>().xPos = x;
-            tempPawn.GetComponent <Pawn>().yPos = y;
+            GameObject tempTow = Instantiate(curTower, spawnPos);
+            tempTow.transform.position = new Vector3(spawnPos.position.x, spawnPos.position.y, -1f);
+            //in here use any other special script get components I will need
             gridManager.getTile(x, y).isOccupied = true;
             curTower = null;
         }
