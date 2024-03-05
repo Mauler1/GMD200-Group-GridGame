@@ -28,8 +28,12 @@ public class King : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        collision.GetComponent<EnemyHealth>().dealDamage();
         Destroy(collision.gameObject);
-        health--;
+    }
+    public void subtractHealth(int damage)
+    {
+        health -= damage;
     }
     private void VictoryScene()
     {

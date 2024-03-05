@@ -30,9 +30,7 @@ public class PieceMenu : MonoBehaviour
             Transform spawnPos = gridManager.getTile(x, y).transform;
             Piece tempTow = Instantiate(curTower, spawnPos);
             tempTow.transform.position = new Vector3(spawnPos.position.x, spawnPos.position.y, -1f);
-            if(tempTow is Pawn pawn){
-                pawn.spawn();
-            }
+            tempTow.spawn();
             //in here use any other special script get components I will need
             gridManager.getTile(x, y).isOccupied = true;
             curTower = null;
@@ -47,5 +45,16 @@ public class PieceMenu : MonoBehaviour
     {
         curTower = targTow;
     }
-
+    public int getCurCost()
+    {
+        return curCost;
+    }
+    public void addCost(int costChange)
+    {
+        curCost += costChange;
+    }
+    public void subtractCost(int costChange)
+    { 
+        curCost -= costChange;
+    }
 }

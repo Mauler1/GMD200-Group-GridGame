@@ -5,13 +5,18 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     private int health = 3;
-
-    private enum enemyType 
+    private int damage = 0;
+    private GameObject king;
+    public enum enemyType 
     { basic, fast, tanky, stronger, sneaky };
 
     void Start()
     {
-        
+        king = GameObject.FindGameObjectWithTag("King");
+        if(enemyType == enemyType.basic)
+        {
+            damage = 1;
+        }
     }
 
     // Update is called once per frame
@@ -20,12 +25,16 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
-    void takeDamage(int damage) 
+    public void takeDamage(int damage) 
     {
         health -= damage;
         if (health <= 0) 
         { 
             Destroy(gameObject);
         }
+    }
+    public void dealDamage()
+    {
+        king.GetComponent<King>().subtractHealth(damage);
     }
 }
