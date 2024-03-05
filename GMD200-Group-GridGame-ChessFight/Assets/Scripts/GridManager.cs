@@ -12,19 +12,14 @@ public class GridManager : MonoBehaviour
     public event Action<GridTile> TileSelected;
     [SerializeField] public GridTile[,] tiles;
     [SerializeField] private PieceMenu menu;
-    private int curCost;
-    private const int START_COST = 100;
-    public TextMeshProUGUI costDisp;
+
+
     //try making a 2d array for the pathways, it would be manually set but it could work.
     private void Awake()
     {
-        curCost = START_COST;
+        
         tiles = new GridTile[numColumns, numRows];
         InitGrid();
-    }
-    private void Update()
-    {
-        costDisp.text = "Current Cost: " + curCost.ToString();
     }
     public void InitGrid()
     {
