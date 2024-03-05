@@ -13,7 +13,7 @@ public class Pawn : MonoBehaviour
     //these will be set when the tower is instantiated so it is dynamic
     public float xPos, yPos;
 
-    public void spawnPawn(){
+    public void spawn(){
 
         //instantiates the four corners of pawn attacking at positions of the transform of this object +/- 1 with padding included, as well as being children of this pawn
 
