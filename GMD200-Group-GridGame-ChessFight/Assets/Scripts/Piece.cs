@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Piece : MonoBehaviour
+public abstract class Piece : MonoBehaviour
 {
     private int damage;
     private int cost;
@@ -19,13 +19,10 @@ public class Piece : MonoBehaviour
         
     }
 
+    public abstract void spawn();
 
-    public int getDamage(){
-        return damage;
-    }
+    public abstract int getDamage();
 
-    public void increaseDamage(int damage){
-        this.damage += damage;
-    }
+    public abstract void increaseDamage(int damage);
 
 }
