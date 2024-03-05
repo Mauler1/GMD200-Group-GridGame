@@ -154,6 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2911653fae96e7945bc42ccaf42731e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movespeed: 5
+  _gridManager: {fileID: 166694998}
+  enemyTiles: []
 --- !u!114 &123495535
 MonoBehaviour:
   m_ObjectHideFlags: 0
