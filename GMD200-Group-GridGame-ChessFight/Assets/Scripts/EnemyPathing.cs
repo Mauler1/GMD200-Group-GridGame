@@ -28,7 +28,7 @@ public class AiPathing : MonoBehaviour
             if (pathIndex == LevelManager.main.path.Length)
             {
                 Destroy(gameObject);
-                Debug.Log("It made it");
+                // make some code here for damage to king
                 return;
             }
             else 
