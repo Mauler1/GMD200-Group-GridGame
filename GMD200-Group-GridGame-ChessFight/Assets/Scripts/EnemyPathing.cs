@@ -58,6 +58,7 @@ public class AiPathing : MonoBehaviour
 
         while (counter < 16)
         {
+            enemyTiles[counter, counter].canBeOccupied = false;
             Debug.Log(enemyTiles[counter, counter]);
             counter++;
         }
