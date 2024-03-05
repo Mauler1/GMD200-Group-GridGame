@@ -13,7 +13,7 @@ public class Pawn : Piece
     //these will be set when the tower is instantiated so it is dynamic
     public float xPos, yPos;
 
-    public void spawn(){
+    public override void spawn(){
 
         //instantiates the four corners of pawn attacking at positions of the transform of this object +/- 1 with padding included, as well as being children of this pawn
 
@@ -25,12 +25,12 @@ public class Pawn : Piece
     }
 
     // damage return function for the attack tile
-    public new int getDamage(){
+    public override int getDamage(){
         return damage;
     }
 
     // increasing damage for use in piece upgrades
-    public new void increaseDamage(int damage){
+    public override void increaseDamage(int damage){
         this.damage += damage;
     }
 }
