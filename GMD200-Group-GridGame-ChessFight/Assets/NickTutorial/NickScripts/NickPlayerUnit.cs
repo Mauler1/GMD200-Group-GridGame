@@ -15,7 +15,6 @@ public class NickPlayerUnit : MonoBehaviour
     private void OnDisable()
     {
         _gridManager.TileSelected -= OnTileSelected;
-
     }
 
     private void OnTileSelected(NickGridTile obj) 

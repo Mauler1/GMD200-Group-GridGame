@@ -154,6 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2911653fae96e7945bc42ccaf42731e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movespeed: 5
+  _gridManager: {fileID: 166694998}
+  enemyTiles: []
 --- !u!114 &123495535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +211,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.32704395, b: 0.32704395, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -227,7 +230,7 @@ Transform:
   m_GameObject: {fileID: 123495533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.32, y: 2.64, z: 0}
+  m_LocalPosition: {x: 7.8, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -259,7 +262,7 @@ Transform:
   m_GameObject: {fileID: 166694996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.79, y: -1.1, z: -0.013829199}
+  m_LocalPosition: {x: -4, y: -4.3, z: -0.013829199}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -277,8 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bc79ee45d40b843b77aa0c956f9149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numRows: 10
-  numColumns: 10
+  numRows: 8
+  numColumns: 8
   tilePrefab: {fileID: 5168909125231699922, guid: 5f9742f5479b1d74ea70436448ca62af, type: 3}
   padding: 0.1
   text: {fileID: 2084868302}

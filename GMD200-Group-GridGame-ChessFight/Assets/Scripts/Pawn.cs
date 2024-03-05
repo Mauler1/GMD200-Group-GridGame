@@ -11,7 +11,7 @@ public class Pawn : MonoBehaviour
     [SerializeField] private GridTile gridTile;
     [SerializeField] private AttackTile attackPrefab;
     //these will be set when the tower is instantiated so it is dynamic
-    public int xPos, yPos;
+    public float xPos, yPos;
 
     public void spawnPawn(){
 
