@@ -7,7 +7,7 @@ public class Pawn : Piece
 {
     public int towerCost = 100;
     [SerializeField] private int damage = 2;
-    [SerializeField] private float padding = 0.1f;
+    [SerializeField] private GridManager gridManager;
     [SerializeField] private GridTile gridTile;
     [SerializeField] private AttackTile attackPrefab;
     //these will be set when the tower is instantiated so it is dynamic
@@ -17,10 +17,10 @@ public class Pawn : Piece
 
         //instantiates the four corners of pawn attacking at positions of the transform of this object +/- 1 with padding included, as well as being children of this pawn
 
-        AttackTile topLeft = Instantiate(attackPrefab, new Vector3(transform.position.x - 1 - padding, transform.position.y + 1 + padding, transform.position.z), Quaternion.identity, transform);
-        AttackTile topRight = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + padding, transform.position.y + 1 + padding, transform.position.z), Quaternion.identity, transform);
-        AttackTile bottomLeft = Instantiate(attackPrefab, new Vector3(transform.position.x - 1 - padding, transform.position.y - 1 - padding, transform.position.z), Quaternion.identity, transform);
-        AttackTile bottomRight = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + padding, transform.position.y - 1 - padding, transform.position.z), Quaternion.identity, transform);
+        AttackTile topLeft = Instantiate(attackPrefab, new Vector3(transform.position.x - 1 - gridManager.padding, transform.position.y + 1 + gridManager.padding, transform.position.z), Quaternion.identity, transform);
+        AttackTile topRight = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + gridManager.padding, transform.position.y + 1 + gridManager.padding, transform.position.z), Quaternion.identity, transform);
+        AttackTile bottomLeft = Instantiate(attackPrefab, new Vector3(transform.position.x - 1 - gridManager.padding, transform.position.y - 1 - gridManager.padding, transform.position.z), Quaternion.identity, transform);
+        AttackTile bottomRight = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + gridManager.padding, transform.position.y - 1 - gridManager.padding, transform.position.z), Quaternion.identity, transform);
 
     }
 

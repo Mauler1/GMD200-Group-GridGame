@@ -470,8 +470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0200b5ea6aef562498bff9500627b786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curTower: {fileID: 1622569076}
-  pawn: {fileID: 1622569076}
+  curTower: {fileID: 1622569077}
+  pawn: {fileID: 1622569077}
   gridManager: {fileID: 74911659}
   costDisp: {fileID: 2061170378}
 --- !u!4 &376224405
@@ -932,11 +932,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1622569076 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3913984913831827141, guid: 22633539c3715c1448fc5f8683f14006, type: 3}
+--- !u!114 &1622569077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1251349112139834293, guid: 22633539c3715c1448fc5f8683f14006, type: 3}
   m_PrefabInstance: {fileID: 4156570945410430992}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cca3ac1dd18894787551dc731ce01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061170376
 GameObject:
   m_ObjectHideFlags: 0

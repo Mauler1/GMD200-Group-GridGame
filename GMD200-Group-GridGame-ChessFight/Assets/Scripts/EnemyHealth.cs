@@ -9,13 +9,37 @@ public class EnemyHealth : MonoBehaviour
     private GameObject king;
     public enum enemyType 
     { basic, fast, tanky, stronger, sneaky };
+    public EnemyType enemyType;
 
     void Start()
     {
         king = GameObject.FindGameObjectWithTag("King");
-       // if(enemyType == enemyType.basic)
+        switch(enemyType)
         {
-            damage = 1;
+            case EnemyType.basic:
+                damage = 1;
+                health = 1;
+                break;
+            case EnemyType.fast:
+                damage = 1;
+                health = 1;
+                break;
+            case EnemyType.tanky: 
+                damage = 2;
+                health = 4;
+                break;
+            case EnemyType.stronger:
+                damage = 3;
+                health = 3;
+                break;
+            case EnemyType.sneaky:
+                damage = 2;
+                health = 1;
+                break;
+            default:
+                damage = 2;
+                health = 1;
+                break;
         }
     }
 
