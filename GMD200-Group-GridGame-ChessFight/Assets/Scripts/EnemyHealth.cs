@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         king = GameObject.FindGameObjectWithTag("King");
-        if(enemyType == enemyType.basic)
+       // if(enemyType == enemyType.basic)
         {
             damage = 1;
         }
