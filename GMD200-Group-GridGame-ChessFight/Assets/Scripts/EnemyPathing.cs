@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AiPathing : MonoBehaviour
 {
+    /*
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
 
@@ -44,9 +45,11 @@ public class AiPathing : MonoBehaviour
 
         rb.velocity = direction * movespeed;
     }
+
+    */
     //this has been temporaily disabled for now for pathing to work
 
-    /*
+    // /*
     private int pathLength;
     private int counter = 0;
     public int[] levelOnePath;
@@ -54,50 +57,48 @@ public class AiPathing : MonoBehaviour
     [SerializeField] private float movespeed = 5f;
     [SerializeField] private GridManager _gridManager;
 
-    public GridTile[,] enemyTiles;
+    public GridTile[] enemyTiles;
 
     void Start()
     {
         LevelOnePath();
         counter = 0;
-        Debug.Log(counter);
+        // Debug.Log(counter);
       
     }
 
 
     void Update()
     {
-        pathCaller();
+        // pathCaller();
     }
 
     public void LevelOnePath() 
     {
         pathLength = 16;
-        enemyTiles = new GridTile[pathLength, pathLength];
-        enemyTiles[0, 0] = _gridManager.getTile(0,5);
-        enemyTiles[1, 1] = _gridManager.getTile(1, 5);
-        enemyTiles[2, 2] = _gridManager.getTile(2, 5);
-        enemyTiles[3, 3] = _gridManager.getTile(3, 5);
-        enemyTiles[4, 4] = _gridManager.getTile(3, 4);
-        enemyTiles[5, 5] = _gridManager.getTile(3, 3);
-        enemyTiles[6, 6] = _gridManager.getTile(3, 2);
-        enemyTiles[7, 7] = _gridManager.getTile(3, 1);
-        enemyTiles[8, 8] = _gridManager.getTile(4, 1);
-        enemyTiles[9, 9] = _gridManager.getTile(5, 1);
-        enemyTiles[10, 10] = _gridManager.getTile(5, 2);
-        enemyTiles[11, 11] = _gridManager.getTile(5, 3);
-        enemyTiles[12, 12] = _gridManager.getTile(5, 4);
-        enemyTiles[13, 13] = _gridManager.getTile(6, 4);
-        enemyTiles[14, 14] = _gridManager.getTile(6, 5);
-        enemyTiles[15, 15] = _gridManager.getTile(7, 5);
-
-        levelOnePath = new int[16];
-
+        enemyTiles = new GridTile[pathLength];
+        enemyTiles[0] = _gridManager.getTile(0,5);
+        enemyTiles[1] = _gridManager.getTile(1, 5);
+        enemyTiles[2] = _gridManager.getTile(2, 5);
+        enemyTiles[3] = _gridManager.getTile(3, 5);
+        enemyTiles[4] = _gridManager.getTile(3, 4);
+        enemyTiles[5] = _gridManager.getTile(3, 3);
+        enemyTiles[6] = _gridManager.getTile(3, 2);
+        enemyTiles[7] = _gridManager.getTile(3, 1);
+        enemyTiles[8] = _gridManager.getTile(4, 1);
+        enemyTiles[9] = _gridManager.getTile(5, 1);
+        enemyTiles[10] = _gridManager.getTile(5, 2);
+        enemyTiles[11] = _gridManager.getTile(5, 3);
+        enemyTiles[12] = _gridManager.getTile(5, 4);
+        enemyTiles[13] = _gridManager.getTile(6, 4);
+        enemyTiles[14] = _gridManager.getTile(6, 5);
+        enemyTiles[15] = _gridManager.getTile(7, 5);
 
         while (counter < 16)
         {
-            enemyTiles[counter, counter].canBeOccupied = false;
-            levelOnePath[counter] = counter;
+            transform.position = enemyTiles[counter].transform.position;
+            // add tweening here
+            enemyTiles[counter].canBeOccupied = false;
             counter++;
         }
     }
@@ -117,7 +118,7 @@ public class AiPathing : MonoBehaviour
     {
         while (counter < 16) 
         {
-            GridTile currentTile = enemyTiles[counter, counter];
+            GridTile currentTile = enemyTiles[counter];
             Vector3 vector3 = new Vector3();
             vector3.x = levelOnePath[counter];
             vector3.y = levelOnePath[counter];
@@ -136,5 +137,5 @@ public class AiPathing : MonoBehaviour
         }
         transform.position = targetPosition;
     }
-    */
+    // */
 }

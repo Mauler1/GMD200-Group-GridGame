@@ -752,9 +752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ed64df02a09494daee388f835ab336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs: []
-  baseEnemies: 8
-  enemiesPerSecond: 0.5
 --- !u!1 &1192759864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1513,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7970795870968835086, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
+      propertyPath: _gridManager
+      value: 
+      objectReference: {fileID: 1192759865}
+    - target: {fileID: 7970795870968835086, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
+      propertyPath: levelOnePath.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1528,7 +1533,7 @@ SceneRoots:
   - {fileID: 1973143216}
   - {fileID: 2811142789361807189}
   - {fileID: 686981807}
-  - {fileID: 1192759866}
   - {fileID: 293968330}
   - {fileID: 1306268985}
   - {fileID: 1181419238}
+  - {fileID: 1192759866}
