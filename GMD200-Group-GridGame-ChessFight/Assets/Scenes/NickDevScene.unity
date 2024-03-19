@@ -786,6 +786,7 @@ MonoBehaviour:
   tilePrefab: {fileID: 5168909125231699922, guid: 5f9742f5479b1d74ea70436448ca62af, type: 3}
   padding: 0.1
   menu: {fileID: 0}
+  upgrader: {fileID: 0}
 --- !u!4 &1192759866
 Transform:
   m_ObjectHideFlags: 0
@@ -1512,6 +1513,10 @@ PrefabInstance:
     - target: {fileID: 1297284617048707438, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7970795870968835086, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
+      propertyPath: movespeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7970795870968835086, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
       propertyPath: _gridManager
