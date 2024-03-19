@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Piece : MonoBehaviour
 {
+    public int towerCost;
+
     public abstract void spawn();
 
     public abstract int getDamage();

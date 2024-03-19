@@ -12,6 +12,7 @@ public class GridManager : MonoBehaviour
     public event Action<GridTile> TileSelected;
     [SerializeField] public GridTile[,] tiles;
     [SerializeField] private PieceMenu menu;
+    public Upgrades upgrader;
 
 
     //try making a 2d array for the pathways, it would be manually set but it could work.
@@ -58,6 +59,10 @@ public class GridManager : MonoBehaviour
             if(gridTile.isOccupied == false && gridTile.canBeOccupied == true)
             {
                 menu.Spawn(gridTile.gridCoords.x, gridTile.gridCoords.y);
+            }
+            else if(gridTile.isOccupied == true)
+            {
+                upgrader.selectedTower = gridTile.occupant.GetComponent<Piece>();
             }
         }
     }
