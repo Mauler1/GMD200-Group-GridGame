@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 316150541736912790}
   - component: {fileID: 1621635890710106068}
   - component: {fileID: 6478281527784608402}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49e2e68f9203bc4cb8c183c5c6606da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPiece: {fileID: 0}
