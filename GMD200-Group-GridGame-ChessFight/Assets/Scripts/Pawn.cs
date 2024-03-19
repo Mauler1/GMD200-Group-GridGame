@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Pawn : Piece
 {
-    public int towerCost = 100;
+    public Pawn()
+    {
+        towerCost = 100;
+    }
+    
     [SerializeField] private int damage = 2;
     [SerializeField] private float padding = 0.1f;
     [SerializeField] private GridTile gridTile;

@@ -25,8 +25,9 @@ public class PieceMenu : MonoBehaviour
     }
     public void Spawn(int x, int y)
     {
-        if(gridManager.getTile(x, y).isOccupied == false && gridManager.getTile(x, y).canBeOccupied == true)
+        if(gridManager.getTile(x, y).isOccupied == false && gridManager.getTile(x, y).canBeOccupied == true && curTower.towerCost <= curCost)
         {
+            curCost -= curTower.towerCost;
             Transform spawnPos = gridManager.getTile(x, y).transform;
             Piece tempTow = Instantiate(curTower, spawnPos);
             tempTow.transform.position = new Vector3(spawnPos.position.x, spawnPos.position.y, -1f);
@@ -34,6 +35,7 @@ public class PieceMenu : MonoBehaviour
             //in here use any other special script get components I will need
             gridManager.getTile(x, y).isOccupied = true;
             curTower = null;
+
         }
         else
         {
