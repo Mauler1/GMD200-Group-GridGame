@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class AiPathing : MonoBehaviour
+public class EnemyPathing : MonoBehaviour
 {
     private int pathLength;
     private int counter = 0;
@@ -59,14 +59,18 @@ public class AiPathing : MonoBehaviour
     {
         while (counter < 16)
         {
-            //Debug.Log("Coroutine started!");
             transform.DOMove(new Vector2(enemyTiles[counter].transform.position.x, enemyTiles[counter].transform.position.y), 1);
             yield return new WaitForSeconds(movespeed);
-            //Debug.Log("Coroutine resumed after delay.");
             enemyTiles[counter].canBeOccupied = false;
             counter++;
-            // transform.position = enemyTiles[counter].transform.position;
         }
+    }
 
+    public void CheckDeath(bool death) 
+    { 
+    if (death) 
+        { 
+        StopCoroutine(CoAdvanceMovement());
+        }
     }
 }

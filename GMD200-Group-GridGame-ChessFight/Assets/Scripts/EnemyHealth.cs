@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     private int health = 3;
     private int damage = 0;
     private GameObject king;
+    private EnemyPathing enemyPathing;
     public enum enemyType 
     { basic, fast, tanky, stronger, sneaky };
     public enemyType EnemyType;
@@ -53,7 +54,8 @@ public class EnemyHealth : MonoBehaviour
     {
         health -= damage;
         if (health <= 0) 
-        { 
+        {
+            enemyPathing.CheckDeath(true);
             Destroy(gameObject);
         }
     }
