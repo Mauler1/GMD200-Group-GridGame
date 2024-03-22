@@ -64,6 +64,10 @@ public class EnemyPathing : MonoBehaviour
             enemyTiles[counter].canBeOccupied = false;
             counter++;
         }
+        if (counter >= 16) 
+        { 
+            // add a part here for the king to take damage and destroy the game object
+        }
     }
 
     public void CheckDeath(bool death) 
