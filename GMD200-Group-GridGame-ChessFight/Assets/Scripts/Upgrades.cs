@@ -53,9 +53,8 @@ public class Upgrades : MonoBehaviour
     {
         if(menu.getCurCost() >= selectedTower.speedTier * 50)
         {
-            //implement once the coroutine is implemented for the attack tiles
-            //selectedTower.increaseSpeed(1);
-            menu.subtractCost(selectedTower.speedTier * 50);
+            selectedTower.increaseSpeed(0.1f);
+            menu.subtractCost(selectedTower.speedTier * 50 - 50);
         }
         else
         {

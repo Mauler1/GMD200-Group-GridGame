@@ -37,7 +37,7 @@ public class PieceMenu : MonoBehaviour
             Transform spawnPos = gridManager.getTile(x, y).transform;
             Piece tempTow = Instantiate(curTower, spawnPos);
             tempTow.transform.position = new Vector3(spawnPos.position.x, spawnPos.position.y, -1f);
-            tempTow.spawn();
+            tempTow.spawn(x, y);
             //in here use any other special script get components I will need
             gridManager.getTile(x, y).isOccupied = true;
             gridManager.getTile(x, y).occupant = tempTow.gameObject;

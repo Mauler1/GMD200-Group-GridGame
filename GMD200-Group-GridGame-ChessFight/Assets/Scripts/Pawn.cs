@@ -14,7 +14,7 @@ public class Pawn : Piece
         atkSpeed = 1.0f;
     }
 
-    new int damage = 2;
+    //new int damage = 2;
     [SerializeField] private float padding = 0.1f;
     [SerializeField] private GridTile gridTile;
     [SerializeField] private AttackTile attackPrefab;
@@ -44,5 +44,15 @@ public class Pawn : Piece
     public override void increaseDamage(int damage){
         this.damage += damage;
         this.attackTier += 1;
+    }
+
+    public override void increaseSpeed(float speed)
+    {
+        this.atkSpeed -= speed;
+        if(atkSpeed < 0)
+        {
+            this.atkSpeed = 0.1f;
+        }
+        this.speedTier += 1;
     }
 }

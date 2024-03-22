@@ -15,4 +15,5 @@ public abstract class Piece : MonoBehaviour
 
     public abstract void increaseDamage(int damage);
 
+    public abstract void increaseSpeed(float speed);
 }

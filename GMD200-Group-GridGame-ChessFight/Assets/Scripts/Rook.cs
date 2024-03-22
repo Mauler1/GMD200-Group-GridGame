@@ -48,4 +48,9 @@ public class Rook : Piece
     public override void increaseDamage(int damage){
         this.damage += damage;
     }
+
+    public override void increaseSpeed(float speed)
+    {
+        throw new System.NotImplementedException();
+    }
 }
