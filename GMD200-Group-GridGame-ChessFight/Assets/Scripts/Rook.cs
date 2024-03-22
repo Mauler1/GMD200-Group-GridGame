@@ -32,13 +32,12 @@ public class Rook : Piece
         //instantiates the rows of attackTiles
         
         for(int i = 0; i < 8; i++){
-            atkTiles[i, yPos] = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + i + padding*i, transform.position.y, transform.position.z), Quaternion.identity, transform);
+            atkTiles[i, yPos] = Instantiate(attackPrefab, new Vector3(startPosX + i + padding*i, transform.position.y, transform.position.z), Quaternion.identity, transform);
         }
         for(int j = 0; j < 8; j++){
-            atkTiles[xPos, j] = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + j + padding*j, transform.position.y, transform.position.z), Quaternion.identity, transform);
+            atkTiles[xPos, j] = Instantiate(attackPrefab, new Vector3(transform.position.x, startPosY + j + padding*j, transform.position.z), Quaternion.identity, transform);
         }
-
-
+        
     }
 
     public override int getDamage(){

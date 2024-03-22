@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4185441242339769525}
   - component: {fileID: 4502642408504843519}
+  - component: {fileID: -7369727744428737835}
   m_Layer: 0
   m_Name: testRook
   m_TagString: Untagged
@@ -84,3 +85,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7369727744428737835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597695943972716365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c529244b51de514c96319bd05127a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerCost: 250
+  attackTier: 0
+  speedTier: 0
+  damage: 1
+  atkSpeed: 0.5
+  padding: 0.1
+  gridTile: {fileID: 5168909125231699922, guid: 5f9742f5479b1d74ea70436448ca62af, type: 3}
+  attackPrefab: {fileID: 6478281527784608402, guid: f18738bf52880144db28920fcb010236, type: 3}
+  xPos: 0
+  yPos: 0
