@@ -624,6 +624,11 @@ RectTransform:
   m_AnchoredPosition: {x: 167.8, y: 20.465}
   m_SizeDelta: {x: 319.9824, y: 40.9292}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &843853936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1128137302078815082, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
+  m_PrefabInstance: {fileID: 2811142789361807189}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &934004839
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,6 +757,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ed64df02a09494daee388f835ab336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 843853936}
+  baseEnemies: 8
+  enemiesPerSecond: 0.5
+  timeBetweenWaves: 5
+  difficultyScalingFactor: 0.75
 --- !u!1 &1192759864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1133,7 @@ GameObject:
   m_Layer: 0
   m_Name: End point
   m_TagString: Untagged
-  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1412,7 +1423,7 @@ GameObject:
   m_Layer: 0
   m_Name: Start point
   m_TagString: Untagged
-  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

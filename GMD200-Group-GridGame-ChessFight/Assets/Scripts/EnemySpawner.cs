@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        onEnemyDestroy.AddListener(EnemyDestroyed); //!!!
+       // (needs to be commeted out! do not uncomment) onEnemyDestroy.AddListener(EnemyDestroyed); //!!!
     }
 
     private void Update()
@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log("Spawn Enemy");
         // putting this in comment mode due to not being ready yet.
         /*
-         GameObject prefabToSpawn = enemyPrefabs[0];
+        GameObject prefabToSpawn = enemyPrefabs[0];
         Instantiate(prefabToSpawn, LevelManager.main.startpoint.position, Quanternion.identity);
          */
     }
