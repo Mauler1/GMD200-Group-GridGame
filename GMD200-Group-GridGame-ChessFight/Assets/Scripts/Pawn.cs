@@ -13,8 +13,6 @@ public class Pawn : Piece
         damage = 2;
         atkSpeed = 1.0f;
     }
-
-    //new int damage = 2;
     [SerializeField] private float padding = 0.1f;
     [SerializeField] private GridTile gridTile;
     [SerializeField] private AttackTile attackPrefab;
