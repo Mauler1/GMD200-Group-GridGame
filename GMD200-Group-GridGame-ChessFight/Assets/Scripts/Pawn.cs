@@ -7,10 +7,12 @@ public class Pawn : Piece
 {
     public Pawn()
     {
-        towerCost = 100;
+        //towerCost = 100;
+        //damage = 2;
+        //atkSpeed = 1.0f;
     }
-    
-    [SerializeField] private int damage = 2;
+
+    new int damage = 2;
     [SerializeField] private float padding = 0.1f;
     [SerializeField] private GridTile gridTile;
     [SerializeField] private AttackTile attackPrefab;

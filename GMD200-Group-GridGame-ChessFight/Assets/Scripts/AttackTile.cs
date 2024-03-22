@@ -11,8 +11,16 @@ public class AttackTile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Enemy")){
-            Debug.Log("hit");
-            other.GetComponent<EnemyHealth>().takeDamage(attackPiece.getDamage());
+            StartCoroutine(Co_AttackEnemy(attackPiece.atkSpeed, other));
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other){
+        StopCoroutine(Co_AttackEnemy(attackPiece.atkSpeed, other));
+    }
+
+    private IEnumerator Co_AttackEnemy(float cooldown, Collider2D other){
+        other.GetComponent<EnemyHealth>().takeDamage(attackPiece.getDamage());
+        yield return new WaitForSeconds(cooldown);
     }
 }

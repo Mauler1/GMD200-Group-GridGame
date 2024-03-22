@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class Piece : MonoBehaviour
 {
     public int towerCost;
+    public int damage;
+    public float atkSpeed;
 
     public abstract void spawn();
 
