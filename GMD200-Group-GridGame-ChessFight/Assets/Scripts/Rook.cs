@@ -16,14 +16,27 @@ public class Rook : Piece
     [SerializeField] private float padding = 0.1f;
     [SerializeField] private GridTile gridTile;
     [SerializeField] private AttackTile attackPrefab;
-    //these will be set when the tower is instantiated so it is dynamic
-    public float xPos, yPos;
 
-    public override void spawn(){
+    [SerializeField] private AttackTile[,] atkTiles;
+    //these will be set when the tower is instantiated so it is dynamic
+    public int xPos, yPos;
+
+    public override void spawn(int x, int y){
+
+        xPos = x;
+        yPos = y;
+
+        float startPosX = transform.position.x - xPos - (padding*xPos);
+        float startPosY = transform.position.y - yPos - (padding*yPos);
 
         //instantiates the rows of attackTiles
         
-        //for(int i = xPos)
+        for(int i = 0; i < 8; i++){
+            atkTiles[i, yPos] = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + i + padding*i, transform.position.y, transform.position.z), Quaternion.identity, transform);
+        }
+        for(int j = 0; j < 8; j++){
+            atkTiles[xPos, j] = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + j + padding*j, transform.position.y, transform.position.z), Quaternion.identity, transform);
+        }
 
 
     }

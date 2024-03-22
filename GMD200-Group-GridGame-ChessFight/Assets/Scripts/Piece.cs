@@ -9,7 +9,7 @@ public abstract class Piece : MonoBehaviour
     public int damage;
     public float atkSpeed;
 
-    public abstract void spawn();
+    public abstract void spawn(int x, int y);
 
     public abstract int getDamage();
 

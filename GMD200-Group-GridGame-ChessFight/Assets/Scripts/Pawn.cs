@@ -19,9 +19,12 @@ public class Pawn : Piece
     [SerializeField] private GridTile gridTile;
     [SerializeField] private AttackTile attackPrefab;
     //these will be set when the tower is instantiated so it is dynamic
-    public float xPos, yPos;
+    public int xPos, yPos;
 
-    public override void spawn(){
+    public override void spawn(int x, int y){
+
+        xPos = x;
+        yPos = y;
 
         //instantiates the four corners of pawn attacking at positions of the transform of this object +/- 1 with padding included, as well as being children of this pawn
 
