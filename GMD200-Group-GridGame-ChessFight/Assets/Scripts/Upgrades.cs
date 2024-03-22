@@ -10,8 +10,7 @@ public class Upgrades : MonoBehaviour
     [SerializeField] private GridManager gridManager;
     [SerializeField] private PieceMenu menu;
     private GridTile tile;
-    public Button upgradeAttack, upgradeSpeed;
-    private int attackTier = 1, speedTier = 1;
+    public GameObject upgradeAttack, upgradeSpeed;
     public TextMeshProUGUI notEnoughCashMessage;
     
     // Start is called before the first frame update
@@ -23,22 +22,26 @@ public class Upgrades : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (selectedTower != null)
+        selectedTower = menu.curTower;
+        if (selectedTower != null && menu.intent == false)
         {
-            upgradeAttack.enabled = true;
-            upgradeSpeed.enabled = true;
+            upgradeAttack.SetActive(true);
+            upgradeAttack.GetComponentInChildren<TextMeshProUGUI>().text = "Attack: " + selectedTower.attackTier + "\nUpgrade Cost: " + selectedTower.attackTier * 50;
+            upgradeSpeed.SetActive(true);
+            upgradeSpeed.GetComponentInChildren<TextMeshProUGUI>().text = "Speed: " + selectedTower.speedTier + "\nUpgrade Cost: " + selectedTower.speedTier * 50;
         }
         else
         {
-            upgradeAttack.enabled = false;
-            upgradeSpeed.enabled = false;
+            upgradeAttack.SetActive(false);
+            upgradeSpeed.SetActive(false);
         }
     }
     public void IncrementAttack()
     {
-        if (menu.getCurCost() <= attackTier * 50)
+        if (menu.getCurCost() >= selectedTower.attackTier * 50)
         {
             selectedTower.increaseDamage(1);
+            menu.subtractCost(selectedTower.attackTier * 50 - 50);
         }
         else
         {
@@ -48,9 +51,11 @@ public class Upgrades : MonoBehaviour
     }
     public void IncrementSpeed()
     {
-        if(menu.getCurCost() <= speedTier * 50)
+        if(menu.getCurCost() >= selectedTower.speedTier * 50)
         {
+            //implement once the coroutine is implemented for the attack tiles
             //selectedTower.increaseSpeed(1);
+            menu.subtractCost(selectedTower.speedTier * 50);
         }
         else
         {

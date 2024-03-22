@@ -53,17 +53,22 @@ public class GridManager : MonoBehaviour
     public void OnTileSelected(GridTile gridTile)
     {
         TileSelected?.Invoke(gridTile);
-        if(menu.curTower != null)
+        if(menu.curTower != null && menu.intent == true)
         {
             //adjust this once we get the pieces figured out
             if(gridTile.isOccupied == false && gridTile.canBeOccupied == true)
             {
                 menu.Spawn(gridTile.gridCoords.x, gridTile.gridCoords.y);
             }
-            else if(gridTile.isOccupied == true)
+            /*else if(gridTile.isOccupied == true)
             {
                 upgrader.selectedTower = gridTile.occupant.GetComponent<Piece>();
-            }
+            }*/
+        }
+        else if(menu.curTower == null)
+        {
+            menu.curTower = gridTile.occupant.GetComponent<Piece>();
+            menu.intent = false;
         }
     }
     public GridTile getTile(int x, int y)

@@ -8,6 +8,8 @@ public class Pawn : Piece
     public Pawn()
     {
         towerCost = 100;
+        attackTier = 1;
+        speedTier = 1;
     }
     
     [SerializeField] private int damage = 2;
@@ -36,5 +38,6 @@ public class Pawn : Piece
     // increasing damage for use in piece upgrades
     public override void increaseDamage(int damage){
         this.damage += damage;
+        this.attackTier += 1;
     }
 }
