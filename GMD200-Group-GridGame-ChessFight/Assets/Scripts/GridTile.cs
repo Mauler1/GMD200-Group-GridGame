@@ -7,7 +7,7 @@ public class GridTile : MonoBehaviour
     public GridManager gridManager;
     public Vector2Int gridCoords;
     private SpriteRenderer spriteRenderer;
-    private Color defaultColor;
+    public Color defaultColor;
     public bool isOccupied, canBeOccupied;
     public GameObject occupant;
 
