@@ -29,6 +29,10 @@ public class GridManager : MonoBehaviour
             for (int x = 0; x < numColumns; x++)
             {
                 GridTile tile = Instantiate(tilePrefab, transform);
+                if((x+y)%2==0){
+                    tile.SetColor(Color.black);
+                    tile.defaultColor = Color.black;
+                }
                 Vector2 tilePos = new Vector2(x + (padding * x), y + (padding * y));
                 tile.transform.localPosition = tilePos;
                 tile.name = $"Tile{x}_{y}";

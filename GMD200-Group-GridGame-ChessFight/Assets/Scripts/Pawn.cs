@@ -26,10 +26,14 @@ public class Pawn : Piece
 
         //instantiates the four corners of pawn attacking at positions of the transform of this object +/- 1 with padding included, as well as being children of this pawn
 
-        AttackTile topLeft = Instantiate(attackPrefab, new Vector3(transform.position.x - 1 - padding, transform.position.y + 1 + padding, transform.position.z), Quaternion.identity, transform);
-        AttackTile topRight = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + padding, transform.position.y + 1 + padding, transform.position.z), Quaternion.identity, transform);
-        AttackTile bottomLeft = Instantiate(attackPrefab, new Vector3(transform.position.x - 1 - padding, transform.position.y - 1 - padding, transform.position.z), Quaternion.identity, transform);
-        AttackTile bottomRight = Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + padding, transform.position.y - 1 - padding, transform.position.z), Quaternion.identity, transform);
+        //top left
+        Instantiate(attackPrefab, new Vector3(transform.position.x - 1 - padding, transform.position.y + 1 + padding, transform.position.z), Quaternion.identity, transform);
+        //top right
+        Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + padding, transform.position.y + 1 + padding, transform.position.z), Quaternion.identity, transform);
+        //bottom left
+        Instantiate(attackPrefab, new Vector3(transform.position.x - 1 - padding, transform.position.y - 1 - padding, transform.position.z), Quaternion.identity, transform);
+        //bottom right
+        Instantiate(attackPrefab, new Vector3(transform.position.x + 1 + padding, transform.position.y - 1 - padding, transform.position.z), Quaternion.identity, transform);
 
     }
 
