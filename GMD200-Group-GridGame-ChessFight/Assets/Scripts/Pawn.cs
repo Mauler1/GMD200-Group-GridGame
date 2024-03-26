@@ -11,7 +11,7 @@ public class Pawn : Piece
         attackTier = 1;
         speedTier = 1;
         damage = 2;
-        atkSpeed = 1.0f;
+        atkSpeed = 1.5f;
         supportTier = 0;
     }
     [SerializeField] private float padding = 0.1f;
@@ -60,7 +60,7 @@ public class Pawn : Piece
     public override void increaseSpeed(float speed)
     {
         this.atkSpeed -= speed;
-        if(atkSpeed < 0)
+        if(atkSpeed <= 0)
         {
             this.atkSpeed = 0.1f;
         }

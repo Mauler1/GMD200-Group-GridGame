@@ -17,6 +17,7 @@ public class Bishop : Piece
     }
 
     [SerializeField] private float padding = 0.1f;
+    public float sizeAdj = 0.1f;
     public int xPos, yPos;
     private PieceMenu menu;
     private void Awake()
@@ -53,6 +54,7 @@ public class Bishop : Piece
     {
         this.atkSpeed += speed;
         this.speedTier += 1;
+        sizeAdj *= atkSpeed;
     }
     public override void decreaseTier(int value)
     {

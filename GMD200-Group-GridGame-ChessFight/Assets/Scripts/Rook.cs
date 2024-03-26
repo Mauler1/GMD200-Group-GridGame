@@ -9,7 +9,7 @@ public class Rook : Piece
 
         towerCost = 250;
         damage = 1;
-        atkSpeed = 0.5f;
+        atkSpeed = 1.0f;
         supportTier = 0;
         attackTier = 1;
         speedTier = 1;

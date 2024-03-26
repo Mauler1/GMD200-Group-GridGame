@@ -6,15 +6,13 @@ public class BishopSupportArea : MonoBehaviour
 {
     private Bishop bishop;
     private const float START_AREA_SIZE = 3.8f;
-    private float sizeAdj = 0.1f;
     private void Awake()
     {
         bishop = GetComponentInParent<Bishop>();
     }
     public void Update()
     {
-        sizeAdj *= bishop.atkSpeed;
-        transform.localScale = new Vector3(START_AREA_SIZE + sizeAdj, START_AREA_SIZE + sizeAdj, 1);
+        transform.localScale = new Vector3(START_AREA_SIZE + bishop.sizeAdj, START_AREA_SIZE + bishop.sizeAdj, 1);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
