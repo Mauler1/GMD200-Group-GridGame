@@ -55,7 +55,7 @@ public class EnemyHealth : MonoBehaviour
         health -= damage;
         if (health <= 0) 
         {
-            enemyPathing.CheckDeath(true);
+            enemyPathing.PeiceKill();
             Destroy(gameObject);
         }
     }

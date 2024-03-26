@@ -1,65 +1,92 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events; // possibly dont use this (located with !!!)
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject[] enemyPrefabs;
 
-    [Header("Attributes")]
+    [Header("Wave Parts")]
+
     [SerializeField] private int baseEnemies = 8;
-    [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
+    [SerializeField] private int currentWave = 1;
+    [SerializeField] private bool waveDone = false;
 
-    [Header("Events")] //!!!
-    public static UnityEvent onEnemyDestroy; //!!!
+    [Header("Events")]
 
-    private int currentWave = 1; 
-    private float timeSinceLastSpawn;
+    public float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    public int spawnNext = 3;
+    public GameObject[] typeOfEnemy;
+    public GameObject enemyPrefab;
 
     private void Awake()
     {
-        onEnemyDestroy.AddListener(EnemyDestroyed); //!!!
-    }
-
-    private void Update()
-    {
-        if (!isSpawning) return;
-        timeSinceLastSpawn = Time.deltaTime;
-        if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0) 
-        {
-            SpawnEnemy();
-            enemiesLeftToSpawn--;
-            enemiesAlive++;
-            timeSinceLastSpawn = 0;
-        }
-    }
-
-    private void EnemyDestroyed() 
-    { 
-        enemiesAlive--; //!!!
+        StartWave();
     }
 
     private void StartWave()
     {
         isSpawning = true;
         enemiesLeftToSpawn = baseEnemies;
+        enemiesAlive = 0;
+    }
+
+    private void Update()
+    {
+        timeSinceLastSpawn = Time.time;
+
+        if (timeSinceLastSpawn > spawnNext) 
+        {
+            isSpawning = true;
+            spawnNext += 3;
+        }
+
+        if (enemiesLeftToSpawn <= 0) 
+        {
+            isSpawning = false;
+        }
+
+        if(isSpawning)
+        {
+            SpawnEnemy();
+            enemiesLeftToSpawn--;
+            enemiesAlive++;
+            isSpawning = false;
+        }
+        CheckWave();
+    }
+
+    private void CheckWave()
+    {
+        if (enemiesLeftToSpawn == 0 && enemiesAlive == 0) 
+        {
+            waveDone = true;
+        }
+
+        if (waveDone) 
+        {
+            Debug.Log("Wave done");
+            currentWave++;
+            enemiesLeftToSpawn = EnemiesPerWave();
+            waveDone = false;
+        }
+    }
+    public void EnemyDestroyed() 
+    { 
+        enemiesAlive--;
     }
 
     private void SpawnEnemy() 
     {
-        Debug.Log("Spawn Enemy");
-        // putting this in comment mode due to not being ready yet.
-        /*
-         GameObject prefabToSpawn = enemyPrefabs[0];
-        Instantiate(prefabToSpawn, LevelManager.main.startpoint.position, Quanternion.identity);
-         */
+        enemyPrefab = typeOfEnemy[Random.Range(1, 4)];
+        Vector3 spawnPosition = new Vector3(-4.4f, 1.8f, 0f);
+        Quaternion spawnRotation = Quaternion.identity;
+        Instantiate(enemyPrefab, spawnPosition, spawnRotation);      
     }
     private int EnemiesPerWave() 
     {

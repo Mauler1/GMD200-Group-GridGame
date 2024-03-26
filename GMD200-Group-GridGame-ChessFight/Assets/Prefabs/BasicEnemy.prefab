@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6f931ec6346334c9d18cf970919d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPathing: {fileID: 0}
+  EnemyType: 0
 --- !u!114 &7970795870968835086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,8 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2911653fae96e7945bc42ccaf42731e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7221507151220484671}
+  levelOnePath: 
   movespeed: 2
+  _gridManager: {fileID: 0}
+  enemyTiles: []
 --- !u!58 &826781441242701575
 CircleCollider2D:
   m_ObjectHideFlags: 0
