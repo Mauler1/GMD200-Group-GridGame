@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyPathing : MonoBehaviour
@@ -11,6 +12,9 @@ public class EnemyPathing : MonoBehaviour
     private Rigidbody2D rb;
     public EnemySpawner spawner;
     private PieceMenu menu;
+
+    private Color defaultColor;
+    private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private float movespeed = 5f;
     [SerializeField] private GridManager _gridManager;
@@ -22,7 +26,7 @@ public class EnemyPathing : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _gridManager = GameObject.FindGameObjectWithTag("Grid").GetComponent<GridManager>();
         spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<EnemySpawner>();
-        //menu = _gridManager.FindGameObjectWithTag("Grid").GetComponent<GridManager>();
+        menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<PieceMenu>();
     }
     void Start()
     {
@@ -56,8 +60,18 @@ public class EnemyPathing : MonoBehaviour
         enemyTiles[14] = _gridManager.getTile(6, 5);
         enemyTiles[15] = _gridManager.getTile(7, 5);
 
+        for (int i = 0; i < 16; i++)
+        {
+            enemyTiles[i].SetColor(Color.green);
+        }
+
         StartCoroutine(CoAdvanceMovement());
 
+    }
+
+    public void setColor(Color color)
+    {
+        _spriteRenderer.color = color;
     }
     IEnumerator CoAdvanceMovement()
     {
@@ -93,5 +107,6 @@ public class EnemyPathing : MonoBehaviour
     public void PeiceKill()
     {
         StopCoroutine(CoAdvanceMovement());
+        menu.addCost(50);
     }
 }

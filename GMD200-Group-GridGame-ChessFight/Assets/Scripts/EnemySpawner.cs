@@ -5,23 +5,23 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject[] enemyPrefabs;
 
-    [Header("Attributes")]
+    [Header("Wave Parts")]
+
     [SerializeField] private int baseEnemies = 8;
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
+    [SerializeField] private int currentWave = 1;
+    [SerializeField] private bool waveDone = false;
 
-    [Header("Events")] //!!!
+    [Header("Events")]
 
-    private int currentWave = 1; 
     public float timeSinceLastSpawn;
-    [SerializeField] private int enemiesAlive;
-    [SerializeField] private int enemiesLeftToSpawn;
+    private int enemiesAlive;
+    private int enemiesLeftToSpawn;
     private bool isSpawning = false;
-    private bool waveDone = false;
     public int spawnNext = 3;
-    //public EnemyPathing enemyPathing;
+    public GameObject[] typeOfEnemy;
     public GameObject enemyPrefab;
 
     private void Awake()
@@ -66,7 +66,14 @@ public class EnemySpawner : MonoBehaviour
         if (enemiesLeftToSpawn == 0 && enemiesAlive == 0) 
         {
             waveDone = true;
+        }
+
+        if (waveDone) 
+        {
             Debug.Log("Wave done");
+            currentWave++;
+            enemiesLeftToSpawn = EnemiesPerWave();
+            waveDone = false;
         }
     }
     public void EnemyDestroyed() 
@@ -76,12 +83,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy() 
     {
-        Debug.Log("Spawn Enemy");
-        // putting this in comment mode due to not being ready yet.
+        enemyPrefab = typeOfEnemy[Random.Range(1, 4)];
         Vector3 spawnPosition = new Vector3(-4.4f, 1.8f, 0f);
         Quaternion spawnRotation = Quaternion.identity;
-        Instantiate(enemyPrefab, spawnPosition, spawnRotation);
-         
+        Instantiate(enemyPrefab, spawnPosition, spawnRotation);      
     }
     private int EnemiesPerWave() 
     {
