@@ -2015,6 +2015,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 04b48ed5a4670e740ad828a669916f67, type: 3}
   - {fileID: 8300000, guid: 2ccb4abdbb44cd6499e46bf57622d3af, type: 3}
   - {fileID: 8300000, guid: 582cf08a624799e42befe5d192554aaf, type: 3}
+  - {fileID: 8300000, guid: 60476ab42f82272498127ae188e14963, type: 3}
+  - {fileID: 8300000, guid: 878c5e38ee2e49a45a9e6905931fea0d, type: 3}
+  - {fileID: 8300000, guid: 90bdb130f66a88d448891e85655f606f, type: 3}
   player: {fileID: 1322292539}
 --- !u!4 &1322292538
 Transform:
