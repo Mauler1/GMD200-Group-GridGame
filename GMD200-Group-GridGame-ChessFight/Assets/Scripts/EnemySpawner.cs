@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("References")]
-
     [Header("Wave Parts")]
 
     [SerializeField] private int baseEnemies = 8;
-    [SerializeField] private float timeBetweenWaves = 5f;
+    // [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
     [SerializeField] public int currentWave = 1;
     [SerializeField] private bool waveDone = false;
@@ -20,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int enemiesAlive;
     [SerializeField] private int enemiesLeftToSpawn;
     private bool isSpawning = false;
-    public int spawnNext = 3;
+    private float spawnNext = 3f;
     public GameObject[] typeOfEnemy;
     public GameObject enemyPrefab;
 
@@ -43,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
         if (timeSinceLastSpawn > spawnNext) 
         {
             isSpawning = true;
-            spawnNext += 3;
+            spawnNext += 3f;
         }
 
         if (enemiesLeftToSpawn <= 0) 
@@ -83,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy() 
     {
-        // enemyPrefab = typeOfEnemy[Random.Range(0, 0)]; //uncomment once we get a new system part
+        enemyPrefab = typeOfEnemy[Random.Range(0, 5)]; 
         Vector3 spawnPosition = new Vector3(-4.4f, 1.8f, 0f);
         Quaternion spawnRotation = Quaternion.identity;
         Instantiate(enemyPrefab, spawnPosition, spawnRotation);      
@@ -93,5 +91,5 @@ public class EnemySpawner : MonoBehaviour
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
     }
 
-    // this will need to have to hold multiple enemy types 
+    
 }

@@ -1401,14 +1401,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseEnemies: 8
-  timeBetweenWaves: 5
   difficultyScalingFactor: 0.75
   currentWave: 1
   waveDone: 0
   timeSinceLastSpawn: 0
+  enemiesAlive: 0
+  enemiesLeftToSpawn: 0
   spawnNext: 3
   typeOfEnemy:
   - {fileID: 1128137302078815082, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
+  - {fileID: 3828729347390946140, guid: 61cf5ea8c80a11746be311f43c92f422, type: 3}
+  - {fileID: 1340821372805973563, guid: bc45d263756efb644a003a329d536bdd, type: 3}
+  - {fileID: 1793464233170107369, guid: c0ee0c81cb022d545aa37ffcfcc699c3, type: 3}
+  - {fileID: 3495953927755375464, guid: 67669421eadf43248baa94332644ee3b, type: 3}
   enemyPrefab: {fileID: 1128137302078815082, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
 --- !u!1 &773124766
 GameObject:
