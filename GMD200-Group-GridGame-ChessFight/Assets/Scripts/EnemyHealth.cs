@@ -21,27 +21,33 @@ public class EnemyHealth : MonoBehaviour
         {
             case enemyType.basic:
                 damage = 1;
-                health = 2 + waveCounter.waveCounter;
+                health = 6 + waveCounter.waveCounter;
+                //enemyPathing.movespeed = 3f;
                 break;
             case enemyType.fast:
                 damage = 1;
-                health = 1 + waveCounter.waveCounter;
+                health = 3 + waveCounter.waveCounter;
+                //enemyPathing.movespeed = 1f;
                 break;
             case enemyType.tanky: 
                 damage = 2;
-                health = 4 + waveCounter.waveCounter;
+                health = 12 + waveCounter.waveCounter;
+                //enemyPathing.movespeed = 4f;
                 break;
             case enemyType.stronger:
                 damage = 3;
-                health = 3 + waveCounter.waveCounter;
+                health = 9 + waveCounter.waveCounter;
+                //enemyPathing.movespeed = 3f;
                 break;
             case enemyType.sneaky:
                 damage = 2;
-                health = 1 + waveCounter.waveCounter;
+                health = 3 + waveCounter.waveCounter;
+                //enemyPathing.movespeed = 2f;
                 break;
             default:
                 damage = 2;
-                health = 1 + waveCounter.waveCounter;
+                health = 3 + waveCounter.waveCounter;
+                //enemyPathing.movespeed = 5f;
                 break;
         }
     }

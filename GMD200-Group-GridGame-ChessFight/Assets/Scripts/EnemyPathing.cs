@@ -16,7 +16,7 @@ public class EnemyPathing : MonoBehaviour
     private Color defaultColor;
     private SpriteRenderer _spriteRenderer;
 
-    [SerializeField] private float movespeed = 5f;
+    [SerializeField] public float movespeed = 5f;
     [SerializeField] private GridManager _gridManager;
 
     public GridTile[] enemyTiles;
@@ -30,6 +30,7 @@ public class EnemyPathing : MonoBehaviour
     }
     void Start()
     {
+
         LevelOnePath();
         counter = 0;
     }

@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
-  movespeed: 2
+  movespeed: 1.5
   _gridManager: {fileID: 0}
   enemyTiles: []
 --- !u!58 &5317703652037092024
