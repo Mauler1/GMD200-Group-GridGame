@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
         if (timeSinceLastSpawn > spawnNext) 
         {
             isSpawning = true;
-            spawnNext += 3f;
+            spawnNext += 2f;
         }
 
         if (enemiesLeftToSpawn <= 0) 
