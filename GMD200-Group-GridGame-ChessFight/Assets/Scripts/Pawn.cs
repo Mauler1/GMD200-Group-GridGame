@@ -17,8 +17,16 @@ public class Pawn : Piece
     [SerializeField] private float padding = 0.1f;
     [SerializeField] private GridTile gridTile;
     [SerializeField] private AttackTile attackPrefab;
+    private PieceMenu menu;
     //these will be set when the tower is instantiated so it is dynamic
     public int xPos, yPos;
+
+    private void Awake()
+    {
+        menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<PieceMenu>();
+        attackTier = 1;
+        speedTier = 1;
+    }
 
     public override void spawn(int x, int y){
 
@@ -66,6 +74,6 @@ public class Pawn : Piece
     }
     private void OnMouseDown()
     {
-        
+        menu.curTower = this;
     }
 }

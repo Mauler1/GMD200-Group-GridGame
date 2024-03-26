@@ -23,7 +23,14 @@ public class Upgrades : MonoBehaviour
     void Update()
     {
         selectedTower = menu.curTower;
-        if (selectedTower != null && menu.intent == false)
+        if(selectedTower!=null && selectedTower.GetComponent<Bishop>() != null && menu.intent == false)
+        {
+            upgradeAttack.SetActive(true);
+            upgradeAttack.GetComponentInChildren<TextMeshProUGUI>().text = "Attack: " + selectedTower.attackTier + "\nUpgrade Cost: " + selectedTower.attackTier * 50;
+            upgradeSpeed.SetActive(true);
+            upgradeSpeed.GetComponentInChildren<TextMeshProUGUI>().text = "Radius: " + selectedTower.speedTier + "\nUpgrade Cost: " + selectedTower.speedTier * 50;
+        }
+        else if (selectedTower != null && menu.intent == false)
         {
             upgradeAttack.SetActive(true);
             upgradeAttack.GetComponentInChildren<TextMeshProUGUI>().text = "Attack: " + selectedTower.attackTier + "\nUpgrade Cost: " + selectedTower.attackTier * 50;

@@ -22,14 +22,16 @@ public class BishopSupportArea : MonoBehaviour
         if(collision.gameObject.GetComponent<Rook>() != null &&  collision.gameObject.GetComponent<Rook>().supportTier < bishop.supportTier)
         {
             collision.gameObject.GetComponent<Rook>().increaseDamage(bishop.supportTier - collision.gameObject.GetComponent<Rook>().supportTier);
-            collision.gameObject.GetComponent<Rook>().increaseSpeed(bishop.supportTier - collision.gameObject.GetComponent<Rook>().supportTier);
+            collision.gameObject.GetComponent<Rook>().increaseSpeed(0.1f);
             collision.gameObject.GetComponent<Rook>().decreaseTier(bishop.supportTier - collision.gameObject.GetComponent<Rook>().supportTier);
+            collision.gameObject.GetComponent<Rook>().supportTier += 1;
         }
         else if (collision.gameObject.GetComponent<Pawn>() != null && collision.gameObject.GetComponent<Pawn>().supportTier < bishop.supportTier)
         {
             collision.gameObject.GetComponent<Pawn>().increaseDamage(bishop.supportTier - collision.gameObject.GetComponent<Pawn>().supportTier);
-            collision.gameObject.GetComponent<Pawn>().increaseSpeed(bishop.supportTier - collision.gameObject.GetComponent<Pawn>().supportTier);
+            collision.gameObject.GetComponent<Pawn>().increaseSpeed(0.1f);
             collision.gameObject.GetComponent<Pawn>().decreaseTier(bishop.supportTier - collision.gameObject.GetComponent<Pawn>().supportTier);
+            collision.gameObject.GetComponent<Pawn>().supportTier += 1;
         }
     }
     /*private void OnTriggerEnter2D(Collider2D collision)

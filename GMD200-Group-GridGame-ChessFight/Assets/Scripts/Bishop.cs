@@ -18,6 +18,11 @@ public class Bishop : Piece
 
     [SerializeField] private float padding = 0.1f;
     public int xPos, yPos;
+    private PieceMenu menu;
+    private void Awake()
+    {
+        menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<PieceMenu>();
+    }
 
     public override void spawn(int x, int y)
     {
@@ -39,6 +44,7 @@ public class Bishop : Piece
     public override void increaseDamage(int damage)
     {
         this.supportTier += damage;
+        this.attackTier += 1;
     }
 
 
@@ -46,9 +52,14 @@ public class Bishop : Piece
     public override void increaseSpeed(float speed)
     {
         this.atkSpeed += speed;
+        this.speedTier += 1;
     }
     public override void decreaseTier(int value)
     {
        //do nothing
+    }
+    private void OnMouseDown()
+    {
+        menu.curTower = this;
     }
 }

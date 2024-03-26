@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2710720536022877079}
   - component: {fileID: 7024662828786095729}
   - component: {fileID: 5935332957332120349}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bishopSupportArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
