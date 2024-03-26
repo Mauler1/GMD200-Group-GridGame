@@ -83,7 +83,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy() 
     {
-        enemyPrefab = typeOfEnemy[Random.Range(1, 4)];
+        // enemyPrefab = typeOfEnemy[Random.Range(0, 0)]; //uncomment once we get a new system part
         Vector3 spawnPosition = new Vector3(-4.4f, 1.8f, 0f);
         Quaternion spawnRotation = Quaternion.identity;
         Instantiate(enemyPrefab, spawnPosition, spawnRotation);      
