@@ -1151,6 +1151,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648667767}
   m_CullTransparentMesh: 1
+--- !u!1 &682015181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682015182}
+  - component: {fileID: 682015183}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &682015182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682015181}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02184175, y: -1.283339, z: -266.5619}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &682015183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682015181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ed64df02a09494daee388f835ab336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseEnemies: 8
+  timeBetweenWaves: 5
+  difficultyScalingFactor: 0.75
+  currentWave: 1
+  waveDone: 0
+  timeSinceLastSpawn: 0
+  spawnNext: 3
+  typeOfEnemy:
+  - {fileID: 1128137302078815082, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
+  enemyPrefab: {fileID: 1128137302078815082, guid: 2e47111b8a9efaf4f8bcf23c7e3f365c, type: 3}
 --- !u!1 &773124766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2654,3 +2708,4 @@ SceneRoots:
   - {fileID: 1411869464}
   - {fileID: 317494460}
   - {fileID: 301980722}
+  - {fileID: 682015182}
