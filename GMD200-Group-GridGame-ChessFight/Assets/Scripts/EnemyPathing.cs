@@ -108,6 +108,7 @@ public class EnemyPathing : MonoBehaviour
 
     public void PeiceKill()
     {
+        spawner.EnemyDestroyed();
         StopCoroutine(CoAdvanceMovement());
         menu.addCost(50);
     }
