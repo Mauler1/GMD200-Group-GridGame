@@ -10,8 +10,8 @@ public class Pawn : Piece
         towerCost = 100;
         attackTier = 1;
         speedTier = 1;
-        damage = 2;
-        atkSpeed = 1.5f;
+        damage = 1;
+        atkSpeed = 1.0f;
         supportTier = 0;
     }
     [SerializeField] private float padding = 0.1f;
