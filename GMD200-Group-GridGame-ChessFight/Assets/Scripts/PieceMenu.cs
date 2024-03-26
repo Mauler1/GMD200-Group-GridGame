@@ -59,6 +59,7 @@ public class PieceMenu : MonoBehaviour
         }
 
     }
+ 
     public void setCurTower(Piece targTow)
     {
         curTower = targTow;

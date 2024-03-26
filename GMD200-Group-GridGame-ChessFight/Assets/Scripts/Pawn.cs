@@ -12,6 +12,7 @@ public class Pawn : Piece
         speedTier = 1;
         damage = 2;
         atkSpeed = 1.0f;
+        supportTier = 0;
     }
     [SerializeField] private float padding = 0.1f;
     [SerializeField] private GridTile gridTile;
@@ -56,5 +57,15 @@ public class Pawn : Piece
             this.atkSpeed = 0.1f;
         }
         this.speedTier += 1;
+    }
+
+    public override void decreaseTier(int value)
+    {
+        attackTier -= value;
+        speedTier -= value;
+    }
+    private void OnMouseDown()
+    {
+        
     }
 }

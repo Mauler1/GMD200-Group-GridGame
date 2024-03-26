@@ -10,7 +10,7 @@ public class Rook : Piece
         towerCost = 250;
         damage = 1;
         atkSpeed = 0.5f;
-
+        supportTier = 0;
     }
 
     [SerializeField] private float padding = 0.1f;
@@ -51,5 +51,11 @@ public class Rook : Piece
     public override void increaseSpeed(float speed)
     {
         throw new System.NotImplementedException();
+    }
+
+    public override void decreaseTier(int value)
+    {
+        attackTier -= value;
+        speedTier -= value;
     }
 }
