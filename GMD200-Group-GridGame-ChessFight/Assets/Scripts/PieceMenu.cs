@@ -10,7 +10,7 @@ public class PieceMenu : MonoBehaviour
     //public Pawn pawn;
     public Piece curTower, pawn;
     [SerializeField] private GridManager gridManager;
-    private const int START_COST = 300;
+    private const int START_COST = 200;
     public TextMeshProUGUI costDisp;
     private int curCost;
     //intent is whether or not the current tower is something that will be placed onto the board, true means it will, false means it wont and already exists

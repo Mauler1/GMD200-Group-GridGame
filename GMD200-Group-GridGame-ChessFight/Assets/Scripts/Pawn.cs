@@ -10,7 +10,7 @@ public class Pawn : Piece
         towerCost = 100;
         attackTier = 1;
         speedTier = 1;
-        damage = 1;
+        damage = 3;
         atkSpeed = 1.0f;
         supportTier = 0;
     }
