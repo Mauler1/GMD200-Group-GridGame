@@ -24,7 +24,11 @@ public class PieceMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        costDisp.text = "Current Cost: " + curCost.ToString();
+        costDisp.text = "Money: " + curCost.ToString();
+        if(curCost == 0)
+        {
+            costDisp.text = "Money: 0";
+        }
         if(Input.GetMouseButtonDown(1))
         {
             curTower = null;
