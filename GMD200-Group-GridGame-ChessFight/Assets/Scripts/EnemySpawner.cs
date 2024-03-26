@@ -17,8 +17,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("Events")]
 
     public float timeSinceLastSpawn;
-    private int enemiesAlive;
-    private int enemiesLeftToSpawn;
+    [SerializeField] private int enemiesAlive;
+    [SerializeField] private int enemiesLeftToSpawn;
     private bool isSpawning = false;
     public int spawnNext = 3;
     public GameObject[] typeOfEnemy;

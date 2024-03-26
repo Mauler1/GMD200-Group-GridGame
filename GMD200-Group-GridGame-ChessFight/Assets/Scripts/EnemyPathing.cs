@@ -79,10 +79,13 @@ public class EnemyPathing : MonoBehaviour
     {
         while (counter < 16)
         {
-            transform.DOMove(new Vector2(enemyTiles[counter].transform.position.x, enemyTiles[counter].transform.position.y), 1);
-            yield return new WaitForSeconds(movespeed);
-            enemyTiles[counter].canBeOccupied = false;
-            counter++;
+            if (gameObject != null) 
+            {
+                transform.DOMove(new Vector2(enemyTiles[counter].transform.position.x, enemyTiles[counter].transform.position.y), 1);
+                yield return new WaitForSeconds(movespeed);
+                enemyTiles[counter].canBeOccupied = false;
+                counter++;
+            }
         }
         if (counter >= 16)
         {
@@ -111,5 +114,6 @@ public class EnemyPathing : MonoBehaviour
         spawner.EnemyDestroyed();
         StopCoroutine(CoAdvanceMovement());
         menu.addCost(50);
+        Destroy(gameObject);
     }
 }
