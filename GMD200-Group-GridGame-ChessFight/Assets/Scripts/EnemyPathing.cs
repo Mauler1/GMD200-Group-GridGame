@@ -114,7 +114,7 @@ public class EnemyPathing : MonoBehaviour
     {
         spawner.EnemyDestroyed();
         StopCoroutine(CoAdvanceMovement());
-        menu.addCost(50);
+        menu.addCost(10);
         Destroy(gameObject);
     }
 }
