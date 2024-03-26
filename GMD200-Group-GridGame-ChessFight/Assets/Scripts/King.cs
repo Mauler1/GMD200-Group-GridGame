@@ -9,7 +9,7 @@ public class King : MonoBehaviour
     private int health;
     private const int START_HEALTH = 20;
     public TextMeshProUGUI healthDisp;
-    public string vicScene, gameOverScene, startScene;
+    public string gameOverScene;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class King : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthDisp.text = "King's Health: " + health;
+        healthDisp.text = "King's Health: \n" + health;
         if(health <= 0 )
         {
             LossScene();
@@ -35,16 +35,8 @@ public class King : MonoBehaviour
     {
         health -= damage;
     }
-    private void VictoryScene()
-    {
-        SceneManager.LoadScene(vicScene);
-    }
     private void LossScene()
     {
         SceneManager.LoadScene(gameOverScene);
-    }
-    private void StartScene()
-    {
-        SceneManager.LoadScene(startScene);
     }
 }
