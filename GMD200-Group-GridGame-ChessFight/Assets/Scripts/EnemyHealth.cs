@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private int health = 3;
-    private int damage = 0;
+    [SerializeField] private int health = 3;
+    public int damage = 0;
     private GameObject king;
     [SerializeField] private EnemyPathing enemyPathing;
     public enum enemyType 
@@ -15,11 +15,12 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         king = GameObject.FindGameObjectWithTag("King");
+        enemyPathing = this.GetComponent<EnemyPathing>();
         switch(EnemyType)
         {
             case enemyType.basic:
                 damage = 1;
-                health = 1;
+                health = 5;
                 break;
             case enemyType.fast:
                 damage = 1;

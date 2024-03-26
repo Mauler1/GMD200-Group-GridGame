@@ -20,7 +20,10 @@ public class AttackTile : MonoBehaviour
     }
 
     private IEnumerator Co_AttackEnemy(float cooldown, Collider2D other){
-        other.GetComponent<EnemyHealth>().takeDamage(attackPiece.getDamage());
+        if(other.GetComponent<EnemyHealth>() != null){
+            other.GetComponent<EnemyHealth>().takeDamage(attackPiece.getDamage());
+        }
+        //other.GetComponent<EnemyHealth>().takeDamage(attackPiece.getDamage());
         yield return new WaitForSeconds(cooldown);
     }
 }

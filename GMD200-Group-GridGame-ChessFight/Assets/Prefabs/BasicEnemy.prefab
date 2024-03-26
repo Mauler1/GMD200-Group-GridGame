@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6f931ec6346334c9d18cf970919d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 3
+  damage: 0
   enemyPathing: {fileID: 0}
   EnemyType: 0
 --- !u!114 &7970795870968835086
@@ -141,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2911653fae96e7945bc42ccaf42731e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelOnePath: 
+  spawner: {fileID: 0}
   movespeed: 2
   _gridManager: {fileID: 0}
   enemyTiles: []
@@ -174,7 +176,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

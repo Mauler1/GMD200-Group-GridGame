@@ -62,7 +62,9 @@ public class EnemyPathing : MonoBehaviour
 
         for (int i = 0; i < 16; i++)
         {
+            enemyTiles[i].isOccupied = true;
             enemyTiles[i].SetColor(Color.green);
+            enemyTiles[i].defaultColor = Color.green;
         }
 
         StartCoroutine(CoAdvanceMovement());
