@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackTile : MonoBehaviour
 {
     [SerializeField] private Piece attackPiece;
-    
+
     private void Awake()
     {
         attackPiece = this.GetComponentInParent<Piece>();
@@ -21,12 +21,11 @@ public class AttackTile : MonoBehaviour
     }
 
     private IEnumerator Co_AttackEnemy(float cooldown, Collider2D other){
-        while(true){
+        while(other != null){
             if(other.GetComponent<EnemyHealth>() != null){
                 other.GetComponent<EnemyHealth>().takeDamage(attackPiece.getDamage());
                 yield return new WaitForSeconds(cooldown);
             }
-        }
-        
+        }  
     }
 }
